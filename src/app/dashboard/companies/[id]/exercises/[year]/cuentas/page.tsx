@@ -22,11 +22,16 @@ export default function CuentasPage() {
         getCompany(id),
         getExercise(id, year),
       ]);
+      console.log(company, exercise);
       setCompany(company);
       setExercise(exercise);
     };
     fetchData();
-  }, [id, year]);
+  }, []);
+
+  if (!company || !exercise) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="space-y-8">
