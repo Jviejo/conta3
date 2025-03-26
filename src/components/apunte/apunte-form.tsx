@@ -110,6 +110,9 @@ export function ApunteForm({ companyId, exerciseYear, initialData, onSuccess }: 
     }
   }
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

@@ -22,7 +22,7 @@ export async function getCuentas(companyId: string, exerciseYear: string): Promi
   const db = client.db("contabilidad");
   const cuentas = await db
     .collection("cuentas")
-    .find({ companyId, exerciseYear })
+    .find({ companyId, exerciseYear: parseInt(exerciseYear) })
     .toArray();
   return JSON.parse(JSON.stringify(cuentas)) as Cuenta[];
 }
